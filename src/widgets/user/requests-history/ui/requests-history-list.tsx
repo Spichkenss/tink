@@ -10,6 +10,7 @@ import { getCurrentUser } from "@/entities/user/domain";
 
 export const RequsestsHistoryList = async () => {
   const user = await getCurrentUser();
+  if (!user) return null;
   const [archive, withdraws] = await Promise.all([
     requestService.getArchivedRequests(user.id),
     withdrawService.getAllUserWithdrawRequest(user.id),

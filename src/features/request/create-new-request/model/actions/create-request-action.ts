@@ -21,6 +21,7 @@ export const createRequestAction = async (
 
   try {
     const user = await getCurrentUser();
+    if (!user) return { error: "не авторизован" };
     const { amount, bank } = validatedFields.data;
     await requestService.createRequest({
       bank,

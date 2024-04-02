@@ -13,6 +13,7 @@ export const withdrawAction = async (
   values: WithdrawSchemaType,
 ) => {
   const user = await getCurrentUser();
+  if (!user) return { error: "не авторизован" };
 
   const validatedFields = WithdrawSchema.safeParse(values);
 

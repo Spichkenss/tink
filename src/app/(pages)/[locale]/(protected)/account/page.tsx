@@ -17,6 +17,9 @@ export const metadata: Metadata = {
 
 const AccountPage = async () => {
   const user = await getCurrentUser();
+
+  if (!user) return null;
+
   const currentRequest = await requestService.getCurrentRequest(user.id);
 
   return (

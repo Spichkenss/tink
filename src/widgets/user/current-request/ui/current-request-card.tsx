@@ -15,6 +15,7 @@ import { RelativeTime } from "@/shared/ui/relative-time";
 
 export const CurrentRequestCard = async () => {
   const user = await getCurrentUser();
+  if (!user) return null;
   const request = await requestService.getCurrentRequest(user.id);
 
   return (
