@@ -1,0 +1,63 @@
+{
+  "extends": ["airbnb", "airbnb/hooks", "next/core-web-vitals"],
+  "plugins": ["simple-import-sort"],
+  "rules": {
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [
+          ["^react", "^@?\\w"],
+          ["^@/app/(.*)$"],
+          ["^@/pages/(.*)$"],
+          ["^@/widgets/(.*)$"],
+          ["^@/features/(.*)$"],
+          ["^@/entities/(.*)$"],
+          ["^@/shared/(.*)$"],
+          ["^\\u0000"],
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          ["^.+\\.?(scss)$"]
+        ]
+      }
+    ],
+    "indent": ["warn", 2],
+    "quotes": ["error", "double"],
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        "extensions": [".ts", ".tsx"]
+      }
+    ],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": "off",
+    "global-require": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "no-unused-vars": "off",
+    "class-methods-use-this": "off",
+    "no-param-reassign": "off",
+    "arrow-body-style": "off",
+    "import/no-cycle": "off",
+    "max-len": ["warn", 100],
+    "react/jsx-no-useless-fragment": "off",
+    "react/jsx-fragments": "off"
+  },
+  "overrides": [
+    {
+      "files": ["app/**/.tsx"],
+      "rules": {
+        "import/prefer-default-export": "error"
+      }
+    }
+  ]
+}

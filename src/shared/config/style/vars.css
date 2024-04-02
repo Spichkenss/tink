@@ -1,0 +1,5 @@
+:root {
+    --header-height: 48px;
+    --sidebar-height: calc(100dvh - var(--header-height));
+    --sidebar-min-width: 250px;
+}
