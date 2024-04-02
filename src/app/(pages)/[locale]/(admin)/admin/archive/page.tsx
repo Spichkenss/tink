@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { AdminDashboard } from "@/pages/admin-dashboard/ui";
+import { AdminDashboard } from "@/widgets/admin-dashboard/ui";
 
 import { requestService } from "@/entities/request/model/services";
 import { RequestEntityWithUser } from "@/entities/request/model/types";

@@ -8,7 +8,8 @@ import { getUserUploadsPath } from "@/entities/user/domain";
 
 import { Page } from "@/shared/config/routing";
 
-export const confirmPaymentAction = async (requestId: RequestId, fileName: string): Promise<RequestEntity> => {
+export const confirmPaymentAction = async (requestId: RequestId, fileName: string):
+  Promise<RequestEntity> => {
   const uploadsPath = await getUserUploadsPath();
   const request = await paymentService.confirmPayment(requestId, `${uploadsPath}/${fileName}`);
   revalidatePath(Page.ACCOUNT);

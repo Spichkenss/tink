@@ -48,7 +48,7 @@
     "no-param-reassign": "off",
     "arrow-body-style": "off",
     "import/no-cycle": "off",
-    "max-len": ["warn", 100],
+    "max-len": "off",
     "react/jsx-no-useless-fragment": "off",
     "react/jsx-fragments": "off"
   },

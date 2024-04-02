@@ -1,10 +1,10 @@
 import { Role } from "@prisma/client";
 
-import { SessionEntity } from "@/entities/user";
+import { SharedSession } from "@/shared/domain/user/types";
 
 declare module "next-auth" {
   interface Session {
-    user: SessionEntity["user"]
+    user: SharedSession["user"]
   }
 }
 

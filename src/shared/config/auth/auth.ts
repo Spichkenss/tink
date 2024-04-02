@@ -44,11 +44,11 @@ export const {
       }
 
       if (token.role && session.user) {
-        session.user.firstName = token.firstName;
-        session.user.lastName = token.lastName;
-        session.user.middleName = token.middleName;
-        session.user.phone = token.phone;
-        session.user.image = token.image;
+        session.user.firstName = token.firstName as string;
+        session.user.lastName = token.lastName as string;
+        session.user.middleName = token.middleName as string;
+        session.user.phone = token.phone as string;
+        session.user.image = token.image as string;
         session.user.role = token.role as Role;
         session.user.balance = token.balance as number;
       }

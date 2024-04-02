@@ -1,3 +1,3 @@
-import { AnswerRequestSchemaType } from "../../../../features/request/answer-request/model/schemas/answer-request-shema";
+import { AnswerRequestSchemaType } from "@/features/request/answer-request/model/schemas";
 
 export type UpdateRequestDto = AnswerRequestSchemaType;
