@@ -22,3 +22,5 @@ const Error = ({ error, reset }: { error: Error & { digest?: string }; reset: ()
     </div>
   );
 };
+
+export default Error;
