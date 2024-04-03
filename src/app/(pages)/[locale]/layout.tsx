@@ -27,7 +27,7 @@ const RootLayout = ({ children, params: { locale } }: Props) => {
         <NextIntlClientProvider locale={locale}>
           <Toaster />
           <Header />
-          <Suspense fallback="loading">{children}</Suspense>
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>
