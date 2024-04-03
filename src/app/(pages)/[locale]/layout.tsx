@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, Suspense } from "react";
 import { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 interface Props extends PropsWithChildren {
   params: {
     locale: string;
-  }
+  };
 }
 
 const RootLayout = ({ children, params: { locale } }: Props) => {
@@ -27,7 +27,7 @@ const RootLayout = ({ children, params: { locale } }: Props) => {
         <NextIntlClientProvider locale={locale}>
           <Toaster />
           <Header />
-          {children}
+          <Suspense fallback="loading">{children}</Suspense>
         </NextIntlClientProvider>
       </body>
     </html>
