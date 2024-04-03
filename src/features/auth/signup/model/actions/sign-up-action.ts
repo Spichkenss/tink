@@ -29,7 +29,5 @@ export const signUpAction = async (values: SignUpSchemaType): Promise<ActionRetu
 
   await userRepository.create({ passwordHash, phone, ...rest });
 
-  redirect(Page.SIGNIN);
-
-  return { success: "Пользователь создан успешно!" };
+  return redirect(Page.SIGNIN);
 };
