@@ -16,12 +16,13 @@ class UserRepository {
     });
   }
 
-  async findUniqueOrThrow(args: Prisma.UserFindUniqueOrThrowArgs): Promise<SharedUser> {
-    return prisma.user.findUniqueOrThrow(args);
-  }
-
   async findUnique(args: Prisma.UserFindUniqueArgs): Promise<SharedUser | null> {
-    return prisma.user.findUnique(args);
+    try {
+      const user = await prisma.user.findUnique(args);
+      return user;
+    } catch (e) {
+      return null;
+    }
   }
 }
 
