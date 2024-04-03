@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "./generated/client"
+  output = "./generated/client"
 }
 
 datasource db {
@@ -97,6 +97,16 @@ model VerificationRequest {
   updatedAt  DateTime @updatedAt
 
   @@unique([identifier, token])
+}
+
+model Contacts {
+  id    String @id @default(cuid())
+  name  Socials
+  link  String
+}
+
+enum Socials {
+  WHATSUP
 }
 
 enum Role {
