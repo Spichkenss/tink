@@ -7,6 +7,7 @@ import { CreateNewRequestModal } from "@/features/request/create-new-request/ui"
 import { requestService } from "@/entities/request/model/services";
 import { getCurrentUser } from "@/entities/user/domain";
 
+import { prisma } from "@/shared/config/prisma";
 import { banks } from "@/shared/lib/consts";
 import { Card, CardContent, CardCredItem } from "@/shared/ui/card";
 import { RelativeTime } from "@/shared/ui/relative-time";
@@ -15,6 +16,7 @@ export const CurrentRequestCard = async () => {
   const user = await getCurrentUser();
   if (!user) return null;
   const request = await requestService.getCurrentRequest(user.id);
+  const chat = await prisma.contacts.findFirst({ where: { name: "WHATSUP" } });
 
   return !request ? (
     <EmptyPlugCard plug="Нет текущих заявок">
@@ -41,7 +43,7 @@ export const CurrentRequestCard = async () => {
         ) : (
           <div className="text-center my-4">Дождитесь ответа от оператора</div>
         )}
-        <RedirectToChatButton />
+        {chat ? <RedirectToChatButton link={chat?.link} /> : null}
       </CardContent>
     </Card>
   );
