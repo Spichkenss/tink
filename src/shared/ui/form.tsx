@@ -180,7 +180,7 @@ FormMessage.displayName = "FormMessage";
 const FormError = forwardRef<
     HTMLDivElement,
     HTMLAttributes<HTMLDivElement>
->(({ children }) => {
+>(({ children }, ref) => {
   if (!children) return null;
 
   return (
