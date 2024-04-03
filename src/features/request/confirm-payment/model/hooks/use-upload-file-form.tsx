@@ -3,7 +3,7 @@ import { errorToast } from "@/shared/ui/error-toast";
 import { successToast } from "@/shared/ui/success-toast";
 
 import { uploadFileAction } from "../actions";
-import { UploadFileSchema, UploadFileSchemaType } from "../schemas";
+import { UploadFileSchema } from "../schemas";
 
 export const useFileUploadForm = () => {
   return useCustomForm({

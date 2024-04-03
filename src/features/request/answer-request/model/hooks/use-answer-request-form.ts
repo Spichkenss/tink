@@ -35,6 +35,7 @@ export const useAnswerRequestForm = (id: RequestId) => {
         title: "Ответ на заявку",
         description: message,
       });
+      setIsOpen(false);
     },
   });
 

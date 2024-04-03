@@ -27,7 +27,10 @@ export const useCreateRequestForm = () => {
     callback: createRequestAction,
     schema: CreateRequestSchema,
     onError: (error) => errorToast({ title: "Ошибка создания заявки", description: error }),
-    onSuccess: (message) => successToast({ title: "Заявка была успешно создана" }),
+    onSuccess: (message) => {
+      successToast({ title: "Заявка была успешно создана" });
+      setIsOpen(false);
+    },
   });
 
   return { ...form, isOpen, setIsOpen };
