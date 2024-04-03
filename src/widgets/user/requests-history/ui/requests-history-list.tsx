@@ -5,6 +5,20 @@ import { withdrawService } from "@/entities/request/model/services/withdraw.serv
 import { UserRequestCard } from "@/entities/request/ui/user-request-card";
 import { getCurrentUser } from "@/entities/user/domain";
 
+type SortType = {
+  createdAt: Date;
+}
+
+const sortByCreatedDate = <T extends SortType, >(arr: T[]) => {
+  return arr.sort((a, b) => {
+    const atime = a.createdAt.valueOf();
+    const btime = b.createdAt.valueOf();
+    if (atime < btime) return -1;
+    if (atime > btime) return 1;
+    return 0;
+  });
+};
+
 export const RequsestsHistoryList = async () => {
   const user = await getCurrentUser();
   if (!user) return null;
@@ -13,15 +27,7 @@ export const RequsestsHistoryList = async () => {
     withdrawService.getAllUserWithdrawRequest(user.id),
   ]);
 
-  const history = [...archive, ...withdraws]
-    .sort((a, b) => {
-      const atime = a.createdAt.valueOf();
-      const btime = b.createdAt.valueOf();
-      if (atime < btime) return -1;
-      if (atime > btime) return 1;
-      return 0;
-    })
-    .reverse();
+  const history = sortByCreatedDate([...archive, ...withdraws]).reverse();
 
   return (
     <div className="space-y-2">
