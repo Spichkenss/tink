@@ -24,7 +24,7 @@ export const signInAction = async (values: SignInSchemaType): Promise<ActionRetu
       case "CredentialsSignin":
         return { error: "Неверный логин или пароль!" };
       default:
-        return { error: "Непредвиденная ошибка!" };
+        return { error: error.message };
       }
     }
     throw error;
