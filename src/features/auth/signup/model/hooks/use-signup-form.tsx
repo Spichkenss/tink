@@ -35,7 +35,6 @@ export const useSignUpForm = () => {
         title: "Успешная регистрация",
         description: message,
       });
-      redirect(Page.SIGNIN, RedirectType.replace);
     },
   });
 };

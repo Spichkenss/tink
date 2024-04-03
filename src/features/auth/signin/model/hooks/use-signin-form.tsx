@@ -32,7 +32,6 @@ export const useSignInForm = () => {
         title: "Вход выполнен успешно",
         description: message,
       });
-      redirect(Page.ACCOUNT, RedirectType.replace);
     },
   });
 };

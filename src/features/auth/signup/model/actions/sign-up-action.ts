@@ -5,6 +5,8 @@ import bcrypt from "bcryptjs";
 import { userRepository } from "@/entities/user/model/repositories/user-repository";
 import { userService } from "@/entities/user/model/services";
 
+import { redirect } from "@/shared/config/navigation";
+import { Page } from "@/shared/config/routing";
 import { ActionReturnType } from "@/shared/lib/types";
 
 import { SignUpSchema, SignUpSchemaType } from "../schemas/signup-schema";
@@ -26,6 +28,8 @@ export const signUpAction = async (values: SignUpSchemaType): Promise<ActionRetu
   const passwordHash = await bcrypt.hash(password, 10);
 
   await userRepository.create({ passwordHash, phone, ...rest });
+
+  redirect(Page.SIGNIN);
 
   return { success: "Пользователь создан успешно!" };
 };
