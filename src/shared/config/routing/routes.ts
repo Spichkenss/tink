@@ -6,7 +6,8 @@ export enum Page {
   SIGNUP = "/auth/signup",
   REQUESTS = "/admin/requests",
   ARCHIVE = "/admin/archive",
-  WITHDRAW = "/admin/withdraw"
+  WITHDRAW = "/admin/withdraw",
+  COURSE = "/course"
 }
 
 export const protectedRoutes = [
@@ -14,6 +15,7 @@ export const protectedRoutes = [
   Page.REQUESTS,
   Page.ARCHIVE,
   Page.WITHDRAW,
+  Page.COURSE,
 ];
 
 export const authRoutes = [
