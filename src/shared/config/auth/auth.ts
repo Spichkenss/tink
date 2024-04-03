@@ -7,7 +7,6 @@ import { userService } from "@/entities/user/model/services";
 import authConfig from "@/shared/config/auth/auth-config";
 
 import prisma from "../prisma/prisma";
-import { Page } from "../routing";
 
 export const {
   handlers: { GET, POST },
