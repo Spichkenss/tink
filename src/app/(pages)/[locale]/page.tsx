@@ -17,15 +17,11 @@ const HomePage = () => {
     <Stack direction="vertical" className="pt-8 px-2">
       <div className="flex-1 flex flex-col items-center justify-center gap-8">
         <div className="text-center space-y-2">
-          <Heading as="h1">
-            Сервис приема онлайн платежей
-          </Heading>
+          <Heading as="h1">Сервис приема онлайн платежей</Heading>
           <Heading as="h3">Инвестиционный кошелек</Heading>
         </div>
         <Button asChild>
-          <Link href={Page.SIGNIN}>
-            Начать инвестировать
-          </Link>
+          <Link href={Page.SIGNIN}>Начать инвестировать</Link>
         </Button>
         <div className="">
           <Image src="/test.svg" alt="landing-picture" width={700} height={700} />

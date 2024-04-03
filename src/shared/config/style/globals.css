@@ -36,6 +36,6 @@
     @apply border-border;
   }
   body {
-    @apply bg-secondary text-foreground antialiased flex min-h-dvh flex-col;
+    @apply bg-background text-foreground antialiased flex min-h-dvh flex-col;
   }
 }

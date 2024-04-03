@@ -1,5 +1,8 @@
+import { Suspense } from "react";
+import { Clock, History } from "lucide-react";
 import { Metadata } from "next";
 
+import { SectionTitle } from "@/widgets/section-title/ui";
 import { BalanceCard } from "@/widgets/user/balance-card/ui";
 import { CurrentRequestCard } from "@/widgets/user/current-request/ui";
 import { RequsestsHistoryList } from "@/widgets/user/requests-history/ui";
@@ -10,6 +13,7 @@ import { requestService } from "@/entities/request/model/services";
 import { getCurrentUser } from "@/entities/user/domain";
 
 import { PageTemplate } from "@/shared/ui/page-template";
+import { Skeleton } from "@/shared/ui/skeleton";
 
 export const metadata: Metadata = {
   title: "Личный кабинет",
@@ -30,8 +34,14 @@ const AccountPage = async () => {
           <BalanceCard />
         </div>
         <div className="w-full flex flex-col gap-4">
-          <CurrentRequestCard />
-          <RequsestsHistoryList />
+          <SectionTitle icon={Clock} label="Текущая заявка" />
+          <Suspense fallback={<Skeleton className="w-full h-[200px]" />}>
+            <CurrentRequestCard />
+          </Suspense>
+          <SectionTitle icon={History} label="История заявок" />
+          <Suspense fallback={<Skeleton className="w-full h-[200px]" />}>
+            <RequsestsHistoryList />
+          </Suspense>
         </div>
       </div>
     </PageTemplate>
