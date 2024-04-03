@@ -8,7 +8,7 @@ class UserService {
   }
 
   async getByPhone(phone: Phone): Promise<SharedUser | null> {
-    return userRepository.findUnique({ where: { phone } });
+    return userRepository.findUniqueOrThrow({ where: { phone } });
   }
 }
 
